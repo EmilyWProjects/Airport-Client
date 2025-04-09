@@ -13,7 +13,6 @@ public class RestClient {
         this.serverUrl = serverUrl;
     }
 
-    // Get a list of airports in a city
     public List<Map<String, Object>> getAirportsInCity(Long cityId) {
         String url = serverUrl + "/cities/" + cityId + "/airports";
         ResponseEntity<List> response = restTemplate.exchange(url, HttpMethod.GET, null, 
@@ -21,7 +20,6 @@ public class RestClient {
         return response.getBody();
     }
 
-    // Get the list of aircraft a passenger has traveled on
     public List<Map<String, Object>> getAircraftForPassenger(Long passengerId) {
         String url = serverUrl + "/passengers/" + passengerId + "/aircraft";
         ResponseEntity<List> response = restTemplate.exchange(url, HttpMethod.GET, null, 
@@ -29,7 +27,6 @@ public class RestClient {
         return response.getBody();
     }
 
-    // Get a list of airports an aircraft can take off from and land at
     public List<Map<String, Object>> getAirportsForAircraft(Long aircraftId) {
         String url = serverUrl + "/aircraft/" + aircraftId + "/airports";
         ResponseEntity<List> response = restTemplate.exchange(url, HttpMethod.GET, null, 
@@ -37,7 +34,6 @@ public class RestClient {
         return response.getBody();
     }
 
-    // Get a list of airports used by passengers
     public List<Map<String, Object>> getAirportsUsedByPassengers() {
         String url = serverUrl + "/passengers/airports";
         ResponseEntity<List> response = restTemplate.exchange(url, HttpMethod.GET, null, 

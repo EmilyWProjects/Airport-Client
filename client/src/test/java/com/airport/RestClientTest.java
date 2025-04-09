@@ -26,7 +26,6 @@ class RestClientTest {
         Long cityId = 1L;
         String url = "http://localhost:8080/cities/" + cityId + "/airports";
 
-        // Mock City and Airport
         City mockCity = new City(1L, "Los Angeles", "California", 4000000);
         List<Airport> mockAirports = List.of(
             new Airport(1L, "LAX", "LAX", mockCity, null),
@@ -48,7 +47,6 @@ class RestClientTest {
         Long passengerId = 5L;
         String url = "http://localhost:8080/passengers/" + passengerId + "/aircraft";
 
-        // Mock Passenger and Aircraft
         City mockCity = new City(1L, "Los Angeles", "California", 4000000);
         Passenger mockPassenger = new Passenger(5L, "John", "Doe", "123-456-7890", mockCity, null);
         List<Aircraft> mockAircraft = List.of(
@@ -71,7 +69,6 @@ class RestClientTest {
         Long aircraftId = 9L;
         String url = "http://localhost:8080/aircraft/" + aircraftId + "/airports";
 
-        // Mock Aircraft and Airport
         List<Airport> mockAirports = List.of(
             new Airport(1L, "LAX", "LAX", null, List.of(new Aircraft(aircraftId, "Boeing 737", "Delta Airlines", 150, null, null))),
             new Airport(2L, "SFO", "SFO", null, List.of(new Aircraft(aircraftId, "Airbus A320", "United Airlines", 180, null, null)))
@@ -91,7 +88,6 @@ class RestClientTest {
     void testGetAirportsUsedByPassengers() {
         String url = "http://localhost:8080/passengers/airports";
 
-        // Mocking Passenger and associated Airports
         List<Airport> mockAirports = List.of(
             new Airport(1L, "LAX", "LAX", null, null),
             new Airport(2L, "SFO", "SFO", null, null)
